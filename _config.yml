@@ -1,0 +1,12 @@
+permalink: /:year/:month/:title.html
+exclude:
+  - 'grunt'
+  - 'less'
+  - 'node_modules'
+  - 'src'
+  - 'Gemfile'
+  - 'Gemfile.lock'
+  - 'Gruntfile.js'
+  - 'package.json'
+  - 'README.md'
+title: 'だるまや京染本店'

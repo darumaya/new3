@@ -1,0 +1,97 @@
+{% capture imager_js_tag %}{% raw %}{width}{pixel_ratio}{% endraw %}{% endcapture %}
+<section class="section-jumbotron">
+    {% if page.main_visual_position %}
+    <style>
+        .section-jumbotron > .jumbotron {
+            background-position: {{ page.main_visual_position }};
+        }
+    </style>
+    {% endif %}
+    <div class="jumbotron">
+        <div class="container">
+            <div class="jumbotron-inner">
+                {% if page.title != site.title %}<h1>{{ page.title }}</h1>{% endif %}
+                <p class="hidden-xs">{{ page.description }}</p>
+            </div>
+        </div>
+    </div>
+    <style>
+        .jumbotron {
+            background-image: url({{ page.main_visual | replace: imager_js_tag, "i6" }});
+        }
+        @media
+        only screen and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (   min--moz-device-pixel-ratio: 2),
+        only screen and (     -o-min-device-pixel-ratio: 2/1),
+        only screen and (        min-device-pixel-ratio: 2),
+        only screen and (                min-resolution: 192dpi),
+        only screen and (                min-resolution: 2dppx) {
+            .jumbotron {
+                background-image: url({{ page.main_visual | replace: imager_js_tag, "i6-2x" }});
+            }
+        }
+        @media (min-width: 415px) {
+            .jumbotron {
+                background-image: url({{ page.main_visual | replace: imager_js_tag, "xs" }});
+            }
+        }
+        @media
+        only screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (min-width: 768px) and (   min--moz-device-pixel-ratio: 2),
+        only screen and (min-width: 768px) and (     -o-min-device-pixel-ratio: 2/1),
+        only screen and (min-width: 768px) and (        min-device-pixel-ratio: 2),
+        only screen and (min-width: 768px) and (                min-resolution: 192dpi),
+        only screen and (min-width: 768px) and (                min-resolution: 2dppx) {
+            .jumbotron {
+                background-image: url({{ page.main_visual | replace: imager_js_tag, "xs-2x" }});
+            }
+        }
+        @media (min-width: 768px) {
+            .jumbotron {
+                background-image: url({{ page.main_visual | replace: imager_js_tag, "sm" }});
+            }
+        }
+        @media
+        only screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (min-width: 768px) and (   min--moz-device-pixel-ratio: 2),
+        only screen and (min-width: 768px) and (     -o-min-device-pixel-ratio: 2/1),
+        only screen and (min-width: 768px) and (        min-device-pixel-ratio: 2),
+        only screen and (min-width: 768px) and (                min-resolution: 192dpi),
+        only screen and (min-width: 768px) and (                min-resolution: 2dppx) {
+            .jumbotron {
+                background-image: url({{ page.main_visual | replace: imager_js_tag, "hd" }});
+            }
+        }
+        @media (min-width: 992px) {
+            .jumbotron {
+                background-image: url({{ page.main_visual | replace: imager_js_tag, "md" }});
+            }
+        }
+        @media
+        only screen and (min-width: 992px) and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (min-width: 992px) and (   min--moz-device-pixel-ratio: 2),
+        only screen and (min-width: 992px) and (     -o-min-device-pixel-ratio: 2/1),
+        only screen and (min-width: 992px) and (        min-device-pixel-ratio: 2),
+        only screen and (min-width: 992px) and (                min-resolution: 192dpi),
+        only screen and (min-width: 992px) and (                min-resolution: 2dppx) {
+            .jumbotron {
+                background-image: url({{ page.main_visual | replace: imager_js_tag, "hd" }});
+            }
+        }
+        @media (min-width: 1200px) {
+            .jumbotron {
+                background-image: url({{ page.main_visual | replace: imager_js_tag, "hd" }});
+            }
+        }
+    </style>
+    <!--[if lt IE 9]>
+    <style>
+        .jumbotron {
+            background-image: url({{ page.main_visual | replace: imager_js_tag, "md" }});
+        }
+    </style>
+    <![endif]-->
+</section>
+<div class="container">
+    <p class="jumbotron-outer visible-xs-block">{{ page.description }}</p>
+</div>
