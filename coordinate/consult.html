@@ -1,0 +1,76 @@
+---
+title: 購入に向けてのご相談
+description: このきもの、興味あるけどどうかしら！？
+main_visual: '/images/o/otoko-jumbotron-DSC05750-{width}{pixel_ratio}.jpg'
+snipet_1st: 購入前にちょっと相談したい
+snipet_2nd: そんな方のためのページです
+layout: category-article
+---
+<section>
+    <h2>購入に向けてのご相談</h2>
+    <p>きものは安くない買い物です。<br>
+        ・この着物に合う
+    </p>
+</section>
+
+<section>
+    <script type="text/javascript">
+        window.onload = function onLoad() {
+            param = GetQueryString();
+            target = document.getElementById("param");
+            target.innerHTML = param["aid"];
+        }
+
+        function GetQueryString() {
+            if (1 < document.location.search.length) {
+                // 最初の1文字 (?記号) を除いた文字列を取得する
+                var query = document.location.search.substring(1);
+
+                // クエリの区切り記号 (&) で文字列を配列に分割する
+                var parameters = query.split('&');
+
+                var result = new Object();
+                for (var i = 0; i < parameters.length; i++) {
+                    // パラメータ名とパラメータ値に分割する
+                    var element = parameters[i].split('=');
+
+                    var paramName = decodeURIComponent(element[0]);
+                    var paramValue = decodeURIComponent(element[1]);
+
+                    // パラメータ名をキーとして連想配列に追加する
+                    result[paramName] = decodeURIComponent(paramValue);
+                }
+                return result;
+            }
+            return null;
+        }
+    </script>
+
+    <h2>相談の流れ</h2>
+    <ol>
+       <li>「メッセージをコピー」ボタンをクリック</li>
+            <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script>
+            <script>
+                $(function () {
+                    var clipboard = new Clipboard('.btn');
+                });
+            </script>
+
+            <!-- Target -->
+            <textarea id="param" style="width:320px;height:100px;">
+            </textarea>
+            <br>
+            <!-- Trigger -->
+            <button class="btn" data-clipboard-target="#param">
+                メッセージをコピー
+            </button>
+        <li>LINEを起動する</li>
+        <a href="http://line.naver.jp/ti/p/%40darumaya" target="_blank"><img border="0" src="http://biz.line.naver.jp/line_business/img/btn/addfriends_ja.png" height="36" /></a>
+        <br>
+        <li>相談内容を送る</li>
+        <p>LINEのトーク画面で、ペーストを押すと、1.でコピーした内容がコピーされます。<br>
+            まずはそのまま送信してください。<br>
+        </p>
+    </ol>
+</section>
