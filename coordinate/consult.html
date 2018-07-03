@@ -22,38 +22,6 @@ order: 200
 </section>
 
 <section>
-    <script type="text/javascript">
-        window.onload = function onLoad() {
-            param = GetQueryString();
-            target = document.getElementById("param");
-            target.innerHTML = param["aid"];
-        }
-
-        function GetQueryString() {
-            if (1 < document.location.search.length) {
-                // 最初の1文字 (?記号) を除いた文字列を取得する
-                var query = document.location.search.substring(1);
-
-                // クエリの区切り記号 (&) で文字列を配列に分割する
-                var parameters = query.split('&');
-
-                var result = new Object();
-                for (var i = 0; i < parameters.length; i++) {
-                    // パラメータ名とパラメータ値に分割する
-                    var element = parameters[i].split('=');
-
-                    var paramName = decodeURIComponent(element[0]);
-                    var paramValue = decodeURIComponent(element[1]);
-
-                    // パラメータ名をキーとして連想配列に追加する
-                    result[paramName] = decodeURIComponent(paramValue);
-                }
-                return result;
-            }
-            return null;
-        }
-    </script>
-
     <h2>相談から購入の流れ(LINEを利用）</h2>
     <ol>
        <li>相談したい商品名をコピー</li>
@@ -61,21 +29,52 @@ order: 200
             こちらをコピーしてLINEで送信してください。<br>
             空欄の場合は2.へ進んでください。
         </p>
-            <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script>
-            <script>
-                $(function () {
-                    var clipboard = new Clipboard('.btn');
-                });
-            </script>
+        <script type="text/javascript">
+            window.onload = function onLoad() {
+                param = GetQueryString();
+                target = document.getElementById("param");
+                target.innerHTML = param["aid"];
+            }
 
-            <!-- Target -->
-            <textarea id="param" style="width:320px;height:100px;">
+            function GetQueryString() {
+                if (1 < document.location.search.length) {
+                    // 最初の1文字 (?記号) を除いた文字列を取得する
+                    var query = document.location.search.substring(1);
+
+                    // クエリの区切り記号 (&) で文字列を配列に分割する
+                    var parameters = query.split('&');
+
+                    var result = new Object();
+                    for (var i = 0; i < parameters.length; i++) {
+                        // パラメータ名とパラメータ値に分割する
+                        var element = parameters[i].split('=');
+
+                        var paramName = decodeURIComponent(element[0]);
+                        var paramValue = decodeURIComponent(element[1]);
+
+                        // パラメータ名をキーとして連想配列に追加する
+                        result[paramName] = decodeURIComponent(paramValue);
+                    }
+                    return result;
+                }
+                return null;
+            }
+        </script>
+
+        <script type="text/javascript">
+            function clipboadCopy(param) {
+                var copytext = document.getElementById(param);
+                var range = document.createRange();
+                range.selectNode(copytext);
+                window.getSelection().addRange(range);
+                document.execCommand("copy");
+            }
+        </script>
+        <textarea id="param" style="width:320px;height:100px;">
             </textarea>
-            <br>
-            <!-- Trigger -->
-            <button class="btn btn-default" data-clipboard-target="#param">内容をコピーする</button>
-            <br>
+        <button class="btn btn-default" onmousedown="clipboadCopy('param')" onmouseup="alert('コピー完了')">内容をコピーする</button>
+
+        <br>
         <li>LINEを起動する</li>
         <a href="http://line.naver.jp/ti/p/%40darumaya" target="_blank">
             <img border="0" src="/images/c/consult-LINEstart_40pt.png" height="48" />
