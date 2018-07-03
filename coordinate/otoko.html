@@ -21,6 +21,24 @@ related:
         普段に着るのであれば、紬が一般的です。</p>
 </section>
 
+
+<section>
+    <h2>クリップボードのコピーテスト</h2>
+    <script type="text/javascript">
+        function clipboadCopy(copyid) {
+            var copytext = document.getElementById(copyid);
+            var range = document.createRange();
+            range.selectNode(copytext);
+            window.getSelection().addRange(range);
+            document.execCommand("copy");
+        }
+    </script>
+    <a onmousedown="clipboadCopy('あほあほ')" >あほあほボタン</a>
+    <br>
+    <span id="copyid">コピーしたいテキスト1</span>
+    <a class="contact-bnr-btn" id="contact-bnr-wechat" onmousedown="clipboadCopy('copyid')" onmouseup="alert('コピー完了')">ボタン</a>
+</section>
+
 <section>
     <h2>男物の御召と角帯</h2>
     <div class="row">
